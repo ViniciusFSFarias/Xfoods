@@ -5,15 +5,19 @@
 #define MAX_STRING_LENGTH 32
 
 typedef struct {
-    char nome[ 32 ];
+    char nome[ MAX_STRING_LENGTH ];
     int categoria;
     int estoque;
     int adquirido;
     float preco;
 } Produto;
 
-void red(); void green(); void blue();
-void yellow(); void cyan(); void reset();
+void red() { printf("\033[0;31m"); }
+void green() { printf("\033[0;32m"); }
+void blue() { printf("\033[0;34m"); }
+void cyan() { printf("\033[0;36m"); }
+void yellow() { printf("\033[0;33m"); }
+void reset() { printf("\033[0m"); }
 
 int main( ) {
 
@@ -44,23 +48,12 @@ int main( ) {
     int totalItensCarrinho = 0;
     float totalAPagar = 0.0f;
 
-    // TODO: alocação dinâmica de memória
-    // int totalProdutosDiferentes = 0;
-    // for ( i = 0; i < totalTipos; i++ ) {
-        // totalProdutosDiferentes += itensPorTipo[ i ];
-    // }
-    // int linhasDaMatriz = 3, colunasDaMatriz = totalProdutosDiferentes;
-    // alocação dinâmica de memória
-    // int *matriz = ( int *) malloc( linhasDaMatriz * colunasDaMatriz * sizeof( int ) );
-
-    // menu principal de scolha
+    // menu principal de escolha
     int menuEscolha = -1;
-    while ( menuEscolha != 0 ) {
-        int k = 0;
+    while ( menuEscolha ) {
         yellow(); printf( "MENU DE PRODUTOS:\n" ); reset();
-        printf( "\033[0m" );
-        for ( k = 0; k < totalTipos; k++ ) {
-            printf( "%d. %s\n", k + 1, tipo[ k ] );
+        for ( i = 0; i < totalTipos; i++ ) {
+            printf( "%d. %s\n", i + 1, tipo[ i ] );
         }
         printf( "0. SAIR\n" );
         printf( "Total de itens no seu carrinho = %d\n", totalItensCarrinho );
@@ -73,9 +66,9 @@ int main( ) {
                 return 0;
             }
             int menuItemEscolha = -1;
-            while ( menuItemEscolha != 0 ) {
+            while ( menuItemEscolha ) {
                 printf( "MENU DE %s:\n", tipo[ menuEscolha - 1 ] );
-                for ( int j = 0; j < itensPorTipo[ menuEscolha - 1 ]; j++ ) {
+                for ( j = 0; j < itensPorTipo[ menuEscolha - 1 ]; j++ ) {
                     printf( "%d. %s (estoque = %d, preço unitário = %.2f)\n",
                         j + 1, produto[ menuEscolha - 1 ][ j ].nome,
                         produto[ menuEscolha - 1][ j ].estoque, produto[ menuEscolha - 1 ][ j ].preco );
@@ -132,15 +125,6 @@ int main( ) {
             red(); printf( "ESCOLHA INVÁLIDA!\n" ); reset();
         }
     }
-    // free( matriz );
-    free(produto);
     blue(); printf( "FIM\n" ); reset();
     return 0;
 }
-
-void red() { printf("\033[0;31m"); }
-void green() { printf("\033[0;32m"); }
-void blue() { printf("\033[0;34m"); }
-void yellow() { printf("\033[0;33m"); }
-void cyan() { printf("\033[0;36m"); }
-void reset() { printf("\033[0m"); }
