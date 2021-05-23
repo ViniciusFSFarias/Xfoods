@@ -21,7 +21,7 @@ void reset() { printf("\033[0m"); }
 
 int main( ) {
 
-    // Esta parte do código carrega a lista de ps.txt
+    // Esta parte do código carrega a lista de produtos.txt
     FILE *filePointer = fopen( "produtos.txt", "rt" );
     if ( filePointer == NULL ) {
         red(); printf( "Error while opening file.\n" ); reset();
