@@ -27,18 +27,12 @@ int main(int argc, char** argv)
 	int selecao;
 	
 	//quantidade de itens que o usuário vai querer comprar
-	int quantidade1;
-	int quantidade2;
-	int quantidade3;
+	int quantidade;
 	
 	//variáveis de contagem
 	int i;
 	int j;
 	
-	tamanho = 45;
-	quantidade1 = 0;
-	quantidade2 = 0;
-	quantidade3 = 0;
 	
 	printf("////////// XFOODS ////////////\n\nBem vindo ao XFOODS, selecione uma sessão de alimentos:\n1. Frutas\n2. Verduras\n3. Legumes\n4. Proteínas\n5. Congelados\n6. Bebidas\n7. Bebidas alcoólicas\n8. Panificadora\n\nEscolha: ");
 	//usuário escolhendo a sessão do menu para visualizar
@@ -70,10 +64,9 @@ int main(int argc, char** argv)
 			int matrizFrutas[2][3] = 
 			{
 			{1, 2, 3},
-			{banana.quantidadeInt - quantidade1, maca.quantidadeInt - quantidade2, uva.quantidadeInt - quantidade3}
+			{banana.quantidadeInt, maca.quantidadeInt, uva.quantidadeInt}
 			};
 			
-			MenuFrutas:
 			
 			//printando a matriz
 			for(i = 0; i < 2; ++i)
@@ -122,34 +115,37 @@ int main(int argc, char** argv)
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
 					//usuário digitando a quantidade a ser comprada dos produtos
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
+					//definindo a nova quantidade de frutas como: quantidade de frutas atual - quantidade comprada
+					banana.quantidadeInt -= quantidade;
 					//definindo o custo do carrinho do usuário
-					custo += quantidade1*5.25;
+					custo += quantidade*5.25;
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
-					custo += quantidade2*1;
+					maca.quantidadeInt -= quantidade;
+					custo += quantidade*1;
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 
-					custo += quantidade3*3.5;
+					uva.quantidadeInt -= quantidade;
+					custo += quantidade*3.5;
 						
 				}break;
 			}
 			
 			printf("\n\nSaldo do carrinho: R$%.2f\n", custo);
-			goto MenuFrutas;
 			
 		}break;
 		
@@ -221,21 +217,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -307,21 +303,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -393,21 +389,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -479,21 +475,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -565,21 +561,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -651,21 +647,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}
@@ -737,21 +733,21 @@ int main(int argc, char** argv)
 				case 1:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade1);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 2:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade2);
+					scanf("%d", &quantidade);
 					
 				}break;
 				
 				case 3:
 				{
 					printf("\nDigite a quantidade que você vai querer comprar: ");
-					scanf("%d", &quantidade3);
+					scanf("%d", &quantidade);
 					
 				}break;
 			}

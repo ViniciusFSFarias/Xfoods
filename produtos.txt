@@ -27,7 +27,7 @@ Bebidas_alcoólicas 3
 cerveja 24 6.30
 vinho 10 13.50
 licor 4 20.00
-Panficadora 3
+Panificadora 3
 pão_francês  35 4.00
 sonho 13 7.30
 empada 10 3.00
